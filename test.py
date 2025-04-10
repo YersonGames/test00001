@@ -16,4 +16,3 @@ for Block in blocks:
 for number in numbers:
     result = number * number
     print(f"Hola {number} * {number} = {result}")
-    print("hola")
