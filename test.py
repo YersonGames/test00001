@@ -22,3 +22,10 @@ for x in dictionary.items():
     key = x[0]
     value = x[1]
     print(f"Key: {key}. Value: {value}")
+    
+
+#Functions
+def test01(nombre):
+    print(f"hola {nombre}")
+    
+test01("maria")
