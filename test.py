@@ -7,6 +7,7 @@ while count != 100:
 
 #For
 numbers = [10,20,30,40]
+dictionary = {"nombre":"Yerson","apellido":"Cheuquehuala","edad":"18"}
 
 blocks = ["Cobblestone","Dirt","Grass","Andesite"]
 
@@ -16,3 +17,8 @@ for Block in blocks:
 for number in numbers:
     result = number * number
     print(f"Hola {number} * {number} = {result}")
+    
+for x in dictionary.items():
+    key = x[0]
+    value = x[1]
+    print(f"Key: {key}. Value: {value}")
