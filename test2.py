@@ -16,13 +16,14 @@ def divi(a,b):
     print(f"el resultado de la division es: {result}")
 
 loop3 = False
+_exit = "5"
 
-print("1) Suma\n2) Resta\n3) Multiplicacion\n4) Division\n5) Salir")
+print(f"1) Suma\n2) Resta\n3) Multiplicacion\n4) Division\n{_exit}) Salir")
 
 while loop3 == False:
     select = input("Ingrese una opcion: ")
 
-    if select == "5":
+    if select == _exit:
         loop3 = True
         break
 
@@ -31,7 +32,6 @@ while loop3 == False:
     a = ""
     b = ""
     cont = False
-    cont2 = False
     loop1 = False
     loop2 = False
 
