@@ -1,4 +1,3 @@
-import math
 b = 0
 loop1 = True
 a = input("aaa: ").split("+")
