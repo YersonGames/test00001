@@ -1,6 +1,7 @@
 b = 0
 loop1 = True
 a = input("aaa: ").split("+")
+a = ""
 while loop1 == True:
     for x in a:
         try:
@@ -10,4 +11,4 @@ while loop1 == True:
             loop1 = True
             b=0
             a = input("aaa: ").split("+")
-print(b)a
+print(b)
