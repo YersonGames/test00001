@@ -10,4 +10,4 @@ while loop1 == True:
             loop1 = True
             b=0
             a = input("aaa: ").split("+")
-print(b)
+print(b)a
