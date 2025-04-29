@@ -14,7 +14,7 @@ while loop1 == True:
 while loop2 == True:
     try: 
         tscale = input("C - Celsius\nK - Kelvin\nF - Farenheit\nEscribe la escala de la temperatura inicial: ")
-        tscale = tscale.upper()
+        tscale = tscale.upper().strip()
         if tscale == "C" or tscale == "K" or tscale == "F":
             loop2 = False
     except ValueError:
@@ -23,7 +23,7 @@ while loop2 == True:
 while loop3 == True:
     try: 
         tscalef = input("C - Celsius\nK - Kelvin\nF - Farenheit\nEscribe a que escala se convertira: ")
-        tscalef = tscalef.upper()
+        tscalef = tscalef.upper().strip()
         if tscalef == "C" or tscalef == "K" or tscalef == "F":
             loop3 = False
     except ValueError:
