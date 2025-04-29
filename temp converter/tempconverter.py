@@ -29,4 +29,4 @@ while loop3 == True:
     except ValueError:
         loop3 = True
 
-converter.convert(tvalue,tscale,tscalef)
+converter.convert(tvalue,tscale,tscalef)a
