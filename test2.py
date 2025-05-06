@@ -40,10 +40,14 @@ while loop3 == False:
             select = input("Ingrese una opcion: ")
         else:
             select = int(select)
-            if select == 1 or select == 2 or select == 3 or select == 4:
+            if select == 1 or select == 2 or select == 3 or select == 4 or select == 5:
                 cont = True
             else:
                 select = ""
+    
+    if select == int(_exit):
+        loop3 = True
+        break
 
     #Primer numero
     while loop1 == False:

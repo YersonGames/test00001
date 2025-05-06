@@ -1,7 +1,7 @@
 b = 0
 loop1 = True
 a = input("aaa: ").split("+")
-a = ""
+#a = ""
 while loop1 == True:
     for x in a:
         try:
