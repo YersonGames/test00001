@@ -21,4 +21,4 @@ for number in numbers:
 for x in dictionary.items():
     key = x[0]
     value = x[1]
-    print(f"Key: {key}. Value: {value}")a
+    print(f"Key: {key}. Value: {value}")
