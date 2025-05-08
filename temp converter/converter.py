@@ -21,3 +21,12 @@ def convert(a,b,c):
         d = a
     
     print(f"{a} {b}° son {d} {c}°")
+
+def nextl(a,b,c):
+    if b == 0:
+        return a
+    elif b == 1:
+        if a == "exit()":
+            return 0
+        else:
+            return c
