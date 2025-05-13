@@ -6,6 +6,7 @@ loop4 = 1
 dloop4 = 1
 loop5 = True
 
+print("Escribe 'exit()' para salir\n")
 while loop5 == True:
 
     while loop4 == 1:
