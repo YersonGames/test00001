@@ -51,7 +51,7 @@ while(1):
     if sumaf == 1:
         b = operacionfunc(operation,b,int(tempnum))
 
-    print(f"resultado: {b}\n")
+    print(f"Resultado: {b}\n")
 
 
 #if operation == 0:
