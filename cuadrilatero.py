@@ -6,5 +6,3 @@ def area(a1r,a2r):
 
 def volumen(v1r,v2r,v3r):
     return (v1r) * (v2r) * (v3r)
-
-a
