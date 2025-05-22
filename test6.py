@@ -17,4 +17,4 @@ print("")
 
 for i in range(0,len(list_movie)):
     print(f"Pelicula {i+1}: {list_movie[i]}")
-print(list_movie[2])
+print(list_movie[2])a
