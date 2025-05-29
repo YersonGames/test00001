@@ -46,4 +46,4 @@ while True:
             elif options[c] == options[3]:
                 actualizar()
     if b == "exit":
-        breaka
+        break
