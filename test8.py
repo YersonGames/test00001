@@ -47,3 +47,4 @@ while True:
                 actualizar()
     if b == "exit":
         break
+    a
