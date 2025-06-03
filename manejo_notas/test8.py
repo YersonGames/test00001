@@ -1,5 +1,5 @@
-asignaturas = ["Biologia","Quimica","Fisica"]
-
+from data.asignaturas import asignaturas
+import os
 def leer():
     for x in asignaturas:
         print(x)
@@ -29,10 +29,17 @@ def actualizar():
     else:
         print("Error: Escribe 2 nombres separado por 1 espacio")
 
-
+def guardar():
+    file_name = 'asignaturas.py'
+    path1 = os.path.join('manejo_notas/data',file_name)
+    path2 = os.path.abspath(path1)
+    path3 = os.path.realpath(path2)
+    final_file = open(path3,'w+')
+    final_file.write(f"asignaturas={asignaturas}")
+    final_file.close()
 
 while True:
-    options = ["leer","crear","buscar","actualizar"]
+    options = ["leer","crear","buscar","actualizar","guardar","help"]
     b = input("command: ").lower().strip()
 
     for c in range(len(options)):
@@ -45,5 +52,10 @@ while True:
                 buscar()
             elif options[c] == options[3]:
                 actualizar()
+            elif options[c] == options[4]:
+                guardar()
+            elif options[c] == options[5]:
+                for x in options:
+                    print(x)
     if b == "exit":
         break
