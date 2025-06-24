@@ -1,5 +1,8 @@
 from data.asignaturas import asignaturas
+import data.conexion
 import os
+
+
 def leer():
     for x in asignaturas:
         print(x)
@@ -39,7 +42,7 @@ def guardar():
     final_file.close()
 
 while True:
-    options = ["leer","crear","buscar","actualizar","guardar","help"]
+    options = ["leer","crear","buscar","actualizar","sqldocentes","guardar","help"]
     b = input("command: ").lower().strip()
 
     for c in range(len(options)):
@@ -55,6 +58,8 @@ while True:
             elif options[c] == options[4]:
                 guardar()
             elif options[c] == options[5]:
+                data.conexion.sqldocentes()
+            elif options[c] == options[6]:
                 for x in options:
                     print(x)
     if b == "exit":
