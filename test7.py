@@ -5,4 +5,4 @@ for x in list_notas:
     for i in range(len(x[1])):
         print(f"{x[0]}: {x[1][i]}")
         suma += x[1][i]
-    print(f"promedio: {suma/len(x[1])}")asasa
+    print(f"promedio: {suma/len(x[1])}")
