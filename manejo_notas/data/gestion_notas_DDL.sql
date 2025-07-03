@@ -29,4 +29,13 @@ CREATE TABLE IF NOT EXISTS docentes_asignaturas(
     CONSTRAINT fk_asignaturas FOREIGN KEY (id_asignatura) REFERENCES asignaturas(id)
 );
 
+CREATE TABLE IF NOT EXISTS opciones_menu(
+    id INT NOT NULL AUTO_INCREMENT,
+    opcion_menu VARCHAR(250) NOT NULL,
+    numero_opcion VARCHAR(2) NOT NULL,
+    tipo_menu INT NOT NULL,
+
+    CONSTRAINT pk_opciones_menu PRIMARY KEY (id)
+);
+
 alter table docentes add hablitado tinyint not null default 1;
