@@ -111,7 +111,7 @@ def execute_sql():
     a = input("Codigo a ejecutar (sql): ")
     data.conexion.executesql(a)
 while True:
-    options = ["leer_asignatura","crear_asignatura","buscar_asignatura","actualizar_asignatura","sqldocentes","sqlasignaturas","guardar","help","leer_profesores","buscar_profesores","crear_profesores","eliminar_asignatura","eliminar_profesor","execute_sql","sqladddocentes","sqladdasignaturas"]
+    options = ["leer_asignatura","crear_asignatura","buscar_asignatura","actualizar_asignatura","sqldocentes","sqlasignaturas","guardar","help","leer_profesores","buscar_profesores","crear_profesores","eliminar_asignatura","eliminar_profesor","execute_sql","sqladddocentes","sqladdasignaturas","sqlconnect"]
     b = input("command: ").lower().strip()
 
     for c in range(len(options)):
@@ -161,5 +161,12 @@ while True:
                         print(asignaturasab[y],asignaturas[y],asignaturasdesc[y],"Ha sido añadido a la base de datos")
                         data.conexion.addsqlasignaturas(asignaturasab[y],asignaturas[y],asignaturasdesc[y])
                     y+=1
+            elif options[c] == options[16]:
+                x1 = input("Host: ")
+                x2 = int(input("Port: "))
+                x3 = input("User: ")
+                x4 = input("Database: ")
+                x5 = input("Password: ")
+                data.conexion.sqlconnect(x1,x2,x3,x4)
     if b == "exit":
         break

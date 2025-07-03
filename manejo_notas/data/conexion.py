@@ -1,7 +1,8 @@
 import mysql.connector;
 
-conexion = mysql.connector.connect(host="127.0.0.1",port=3306,user="root",database="gestion_notas")
-cursor = conexion.cursor()
+def sqlconnect(a,b,c,d):
+    conexion = mysql.connector.connect(host=a,port=b,user=c,database=d)
+    cursor = conexion.cursor()
 
 def sqldocentes():
     cursor.execute("select * from docentes")
