@@ -4,6 +4,7 @@ from data.asignaturas import asignaturasdesc
 from data.profesores import profesores
 from data.profesores import profesoresrut
 from data.profesores import profesoresemail
+from data.conexion import cursor
 import data.conexion
 import os
 
@@ -110,63 +111,90 @@ def eliminar_prof():
 def execute_sql():
     a = input("Codigo a ejecutar (sql): ")
     data.conexion.executesql(a)
-while True:
-    options = ["leer_asignatura","crear_asignatura","buscar_asignatura","actualizar_asignatura","sqldocentes","sqlasignaturas","guardar","help","leer_profesores","buscar_profesores","crear_profesores","eliminar_asignatura","eliminar_profesor","execute_sql","sqladddocentes","sqladdasignaturas","sqlconnect"]
-    b = input("command: ").lower().strip()
 
-    for c in range(len(options)):
-        if b.lower() in options[c]:
-            if options[c] == options[0]:
-                leer()
-            elif options[c] == options[1]:
-                crear()
-            elif options[c] == options[2]:
-                buscar()
-            elif options[c] == options[3]:
-                actualizar()
-            elif options[c] == options[4]:
-                data.conexion.sqldocentes()
-            elif options[c] == options[5]:
-                data.conexion.sqlasignaturas()
-            elif options[c] == options[6]:
-                guardar()
-            elif options[c] == options[7]:
-                for x in options:
-                    print(x)
-            elif options[c] == options[8]:
-                leer_prof()
-            elif options[c] == options[9]:
-                buscar_prof()
-            elif options[c] == options[10]:
-                crear_prof()
-            elif options[c] == options[11]:
-                eliminar()
-            elif options[c] == options[12]:
-                eliminar_prof()
-            elif options[c] == options[13]:
-                execute_sql()
-            elif options[c] == options[14]:
-                x = input("Nombre profesor a añadir: ")
-                y = 0
-                for i in profesores:
-                    if x.lower() in i.lower():
-                        print(profesoresrut[y],profesores[y],profesoresemail[y],"Ha sido añadido a la base de datos")
-                        data.conexion.addsqldocentes(profesoresrut[y],profesores[y],profesoresemail[y])
-                    y+=1
-            elif options[c] == options[15]:
-                x = input("Nombre asignatura a añadir: ")
-                y = 0
-                for i in asignaturas:
-                    if x.lower() in i.lower():
-                        print(asignaturasab[y],asignaturas[y],asignaturasdesc[y],"Ha sido añadido a la base de datos")
-                        data.conexion.addsqlasignaturas(asignaturasab[y],asignaturas[y],asignaturasdesc[y])
-                    y+=1
-            elif options[c] == options[16]:
-                x1 = input("Host: ")
-                x2 = int(input("Port: "))
-                x3 = input("User: ")
-                x4 = input("Database: ")
-                x5 = input("Password: ")
-                data.conexion.sqlconnect(x1,x2,x3,x4)
+
+while True:
+    x1 = input("Host: ")
+    x2 = int(input("Port: "))
+    x3 = input("User: ")
+    x4 = input("Database: ")
+     #x5 = input("Password: ")
+    a = data.conexion.sqlconnect(x1,x2,x3,x4)
+    if a == 1:
+        break
+print(f"Se ha conectado correctamente a la base de datos {x4}")
+while True:
+    options = ["leer_asignatura","crear_asignatura","buscar_asignatura","actualizar_asignatura","sqldocentes","sqlasignaturas","guardar","help","leer_profesores","buscar_profesores","crear_profesores","eliminar_asignatura","eliminar_profesor","execute_sql","sqladddocentes","sqladdasignaturas","sqlconnect","sqldeldocentes","sqldelasignaturas"]
+    b = input("command (help): ").lower().strip()
+    if b != "":
+        for c in range(len(options)):
+            if b.lower() in options[c]:
+                if options[c] == options[0]:
+                    leer()
+                elif options[c] == options[1]:
+                    crear()
+                elif options[c] == options[2]:
+                    buscar()
+                elif options[c] == options[3]:
+                    actualizar()
+                elif options[c] == options[4]:
+                    data.conexion.sqldocentes()
+                elif options[c] == options[5]:
+                    data.conexion.sqlasignaturas()
+                elif options[c] == options[6]:
+                    guardar()
+                elif options[c] == options[7]:
+                    print("Lista de comandos:\n")
+                    for x in options:
+                        print(x)
+                elif options[c] == options[8]:
+                    leer_prof()
+                elif options[c] == options[9]:
+                    buscar_prof()
+                elif options[c] == options[10]:
+                    crear_prof()
+                elif options[c] == options[11]:
+                    eliminar()
+                elif options[c] == options[12]:
+                    eliminar_prof()
+                elif options[c] == options[13]:
+                    execute_sql()
+                elif options[c] == options[14]:
+                    x = input("Nombre profesor a añadir: ")
+                    y = 0
+                    for i in profesores:
+                        if x.lower() in i.lower():
+                            print(profesoresrut[y],profesores[y],profesoresemail[y],"Ha sido añadido a la base de datos")
+                            data.conexion.addsqldocentes(profesoresrut[y],profesores[y],profesoresemail[y])
+                        y+=1
+                elif options[c] == options[15]:
+                    x = input("Nombre asignatura a añadir: ")
+                    y = 0
+                    for i in asignaturas:
+                        if x.lower() in i.lower():
+                            print(asignaturasab[y],asignaturas[y],asignaturasdesc[y],"Ha sido añadido a la base de datos")
+                            data.conexion.addsqlasignaturas(asignaturasab[y],asignaturas[y],asignaturasdesc[y])
+                        y+=1
+                elif options[c] == options[16]:
+                    x1 = input("Host: ")
+                    x2 = int(input("Port: "))
+                    x3 = input("User: ")
+                    x4 = input("Database: ")
+                    #x5 = input("Password: ")
+                    data.conexion.sqlconnect(x1,x2,x3,x4)
+                elif options[c] == options[17]:
+                    x1 = input("Nombre del docente a eliminar: ")
+                    for i in profesores:
+                        if x1.lower().strip() in i.lower().strip():
+                            print(i)
+                            data.conexion.delsqldocentes(i)
+                            print(f"El docente {i} ha sido eliminado")
+                elif options[c] == options[18]:
+                    x1 = input("Nombre de la asignatura a eliminar: ")
+                    for i in asignaturas:
+                        if x1.lower().strip() in i.lower().strip():
+                            print(i)
+                            data.conexion.delsqlasignaturas(i)
+                            print(f"La asignatura {i} ha sido eliminado")
     if b == "exit":
         break
