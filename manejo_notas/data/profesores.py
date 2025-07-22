@@ -1,3 +1,3 @@
-profesores=['Yerson']
-profesoresrut=['cheuqheual']
-profesoresemail=['oajdiojqw']
+profesores=[]
+profesoresrut=[]
+profesoresemail=[]
