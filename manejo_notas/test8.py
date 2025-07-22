@@ -392,9 +392,10 @@ def cursorcheck1(): #verificar seleccion de la lista en profesores
         for i in indice:
             cursor2 = i
         textsel = cursor2
-        textsp1a.set("Nombre: "+str(profesores[cursor2]))
-        textsp2a.set("RUN: "+str(profesoresrut[cursor2]))
-        textsp3a.set("Email: "+str(profesoresemail[cursor2]))
+        if cursor2 != -1:
+            textsp1a.set("Nombre: "+str(profesores[cursor2]))
+            textsp2a.set("RUN: "+str(profesoresrut[cursor2]))
+            textsp3a.set("Email: "+str(profesoresemail[cursor2]))
         if cursor2 != -1 and curname == 1:
             textsp1 = tkinter.Label(ventana,textvariable=textsp1a)
             textsp1.place(x=300,y=300,anchor='w')
@@ -420,9 +421,10 @@ def cursorcheck2(): #verificar seleccion de la lista en asignaturas
         for i in indice:
             cursor2 = i
         textsel = cursor2
-        textsp1a.set("Nombre: "+str(asignaturas[cursor2]))
-        textsp2a.set("Codigo: "+str(asignaturasab[cursor2]))
-        textsp3a.set("Descripcion: "+str(asignaturasdesc[cursor2]))
+        if cursor2 != -1:
+            textsp1a.set("Nombre: "+str(asignaturas[cursor2]))
+            textsp2a.set("Codigo: "+str(asignaturasab[cursor2]))
+            textsp3a.set("Descripcion: "+str(asignaturasdesc[cursor2]))
         if cursor2 != -1 and curname == 1:
             textsp1 = tkinter.Label(ventana,textvariable=textsp1a)
             textsp1.place(x=300,y=300,anchor='w')
