@@ -151,7 +151,6 @@ def check_login(a): #Verificar si se ha logeado correctamente
         limpiar_ventana()
         crear_ventana2()
         cargar_db()
-        #conexion.executesql("insert into docentes(nombre_docente) values('aaaaa');")
     else:
         ventana.after(1000,lambda:check_login(conexion.login))
 
