@@ -10,7 +10,7 @@ import os
 import tkinter
 import random
 
-def guardar():
+def guardar(): #Guardar archivo asignatura/profesores
     file_name = 'asignaturas.py'
     path1 = os.path.join('manejo_notas/data',file_name)
     path2 = os.path.abspath(path1)
@@ -30,20 +30,7 @@ def guardar():
     final_file.write(f"profesoresemail={profesoresemail}")
     final_file.close()
 
-def leer_prof():
-    a = 0
-    for x in profesores:
-        print(x,profesoresrut[a],profesoresemail[a])
-        a+=1
-
-def buscar_prof():
-    a = input("buscar profesor: ")
-    b=0
-    for x in profesores:
-        if a.lower() in x.lower():
-            print(x,profesoresrut[b],profesoresemail[b])
-        b+=1
-def actualizar_prof(a,b,c,d):
+def actualizar_prof(a,b,c,d): #actualizar datos profesores
     a2 = str(profesores[d]).title()
     b2 = profesoresrut[d]
     c2 = profesoresemail[d]
@@ -63,10 +50,7 @@ def actualizar_prof(a,b,c,d):
     conexion.updsqldocentes(a,b,c,a2,b2,c2)
     guardar()
 
-def crear_prof(a,b,c):
-    #a = input("Nombre profesor: ").title()
-    #b = input("RUT profesor: ")
-    #c = input("Email profesor: ")
+def crear_prof(a,b,c): #Crear nuevo profesor
     a = str(a).title().strip()
     b = str(b).strip()
     c = str(c).strip()
@@ -82,12 +66,8 @@ def crear_prof(a,b,c):
     crear_ventana_profesores()
     conexion.addsqldocentes(b,a,c)
     guardar()
-    #conexion.sqldocentes()
 
-def crear_asig(a,b,c):
-    #a = input("Nombre profesor: ").title()
-    #b = input("RUT profesor: ")
-    #c = input("Email profesor: ")
+def crear_asig(a,b,c): #Crear nueva asignatura
     a = str(a).title().strip()
     b = str(b).strip().upper()
     c = str(c).strip()
@@ -103,9 +83,8 @@ def crear_asig(a,b,c):
     crear_ventana_asignaturas()
     conexion.addsqlasignaturas(b,a,c)
     guardar()
-    #conexion.sqldocentes()
     
-def actualizar_asig(a,b,c,d):
+def actualizar_asig(a,b,c,d): #Actualizar datos asignatura
     a2 = str(asignaturas[d]).title()
     b2 = asignaturasab[d]
     c2 = asignaturasdesc[d]
@@ -124,16 +103,12 @@ def actualizar_asig(a,b,c,d):
     crear_ventana_asignaturas()
     conexion.updsqlasignaturas(a,b,c,a2,b2,c2)
     guardar()
-
-def execute_sql():
-    a = input("Codigo a ejecutar (sql): ")
-    conexion.executesql(a)
     
-
-def limpiar_ventana():
+def limpiar_ventana(): #Limpiar la ventana
     for widget in ventana.winfo_children():
         widget.destroy()
-def check_login(a):
+        
+def check_login(a): #Verificar si se ha logeado correctamente
     print("check",a)
     if a == 1:
         limpiar_ventana()
@@ -142,7 +117,7 @@ def check_login(a):
     else:
         ventana.after(1000,lambda:check_login(conexion.login))
 
-def crear_ventana1():
+def crear_ventana1(): #Ventana de login
     ventana.title("Gestion Notas")
     ventana.minsize(800,600)
     ventana.resizable(0,0)
@@ -170,7 +145,7 @@ def crear_ventana1():
 
     check_login(conexion.login)
 
-def crear_ventana2():
+def crear_ventana2(): #ventana de gestion
     global ventana, cursor2check
     cursor2check = 0
     limpiar_ventana()
@@ -180,7 +155,7 @@ def crear_ventana2():
     btn2 = tkinter.Button(ventana,text="Asignaturas",command=lambda:crear_ventana_asignaturas())
     btn2.place(x=400,y=72+(32*1),anchor='center')
     
-def crear_ventana_asignaturas():
+def crear_ventana_asignaturas(): #ventana de gestion de asignaturas
     global list1, ventana, cursor2check
     cursor2check = 1
     limpiar_ventana()
@@ -199,7 +174,7 @@ def crear_ventana_asignaturas():
         list1.insert(tkinter.END,asignaturas[yy])
     cursorcheck2()
 
-def crear_ventana_profesores():
+def crear_ventana_profesores(): #ventana de gestion de profesores
     global list1, ventana, cursor2check
     cursor2check = 1
     limpiar_ventana()
@@ -219,7 +194,7 @@ def crear_ventana_profesores():
     cursorcheck1()
     
     
-def btndelteprofesor():
+def btndelteprofesor(): #boton para eliminar profesores
     global list1, ventana, cursor2check
     indice = list1.curselection()
     for i in indice:
@@ -231,7 +206,7 @@ def btndelteprofesor():
         crear_ventana_profesores()
         guardar()
         
-def btndelteasignatura():
+def btndelteasignatura(): #boton eliminar asignatura
     global list1, ventana, cursor2check
     indice = list1.curselection()
     for i in indice:
@@ -243,7 +218,7 @@ def btndelteasignatura():
         crear_ventana_asignaturas()
         guardar()
         
-def crear_ventana_updpro():
+def crear_ventana_updpro(): #boton actualizar datos profesor
     global ventana,list1
     indice = list1.curselection()
     selected = -1
@@ -272,7 +247,7 @@ def crear_ventana_updpro():
         
         tkinter.Button(ventana,text="Actualizar",command=lambda:actualizar_prof(box1.get(),box2.get(),box3.get(),selected)).place(x=400,y=300,anchor='center')
         
-def crear_ventana_updasig():
+def crear_ventana_updasig(): #boton actualizar datos asignatura
     global ventana,list1
     indice = list1.curselection()
     selected = -1
@@ -302,7 +277,7 @@ def crear_ventana_updasig():
         tkinter.Button(ventana,text="Actualizar",command=lambda:actualizar_asig(box1.get(),box2.get(),box3.get(),selected)).place(x=400,y=300,anchor='center')
      
 
-def crear_ventana_crtpro():
+def crear_ventana_crtpro(): #ventana crear nuevo profesor
     global ventana, cursor2check
     cursor2check = 0
     limpiar_ventana()
@@ -322,7 +297,7 @@ def crear_ventana_crtpro():
     
     tkinter.Button(ventana,text="Crear",command=lambda:crear_prof(box1.get(),box2.get(),box3.get())).place(x=400,y=300,anchor='center')
 
-def crear_ventana_crtasig():
+def crear_ventana_crtasig(): #ventana crear nueva asignatura
     global ventana, cursor2check
     cursor2check = 0
     limpiar_ventana()
@@ -342,7 +317,7 @@ def crear_ventana_crtasig():
     
     tkinter.Button(ventana,text="Crear",command=lambda:crear_asig(box1.get(),box2.get(),box3.get())).place(x=400,y=300,anchor='center')
 
-def cursorcheck1():
+def cursorcheck1(): #verificar seleccion de la lista en profesores
     global ventana, cursor2check, list1
     indice = -1
     try:
@@ -361,7 +336,7 @@ def cursorcheck1():
             ventana.after(100,cursorcheck1)
         print("check2")
         
-def cursorcheck2():
+def cursorcheck2(): #verificar seleccion de la lista en asignaturas
     global ventana, cursor2check, list1
     indice = -1
     try:
@@ -382,7 +357,7 @@ def cursorcheck2():
 
         
 
-ventana = tkinter.Tk()
+ventana = tkinter.Tk() #crear la ventana
 
 crear_ventana1()
 
