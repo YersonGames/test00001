@@ -68,4 +68,4 @@ def updsqlasignaturas(a,b,c,a2,b2,c2): #actualizar asignatura de la base de dato
     cursor.execute(f"update asignaturas set descripcion_asignatura = '{c}' where nombre_asignatura = '{a}'")
     
 #pip3 install mysql-connector
-#pip3 install tkinter
+#pip3 install tk
