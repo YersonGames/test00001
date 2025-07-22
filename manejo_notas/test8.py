@@ -440,6 +440,5 @@ ventana = tkinter.Tk() #crear la ventana
 
 crear_ventana1()
 
-
 ventana.mainloop()
 exit()
