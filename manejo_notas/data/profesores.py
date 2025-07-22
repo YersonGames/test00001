@@ -1,3 +1,3 @@
-profesores=[]
-profesoresrut=[]
-profesoresemail=[]
+profesores=['Yerson', 'Dwda']
+profesoresrut=['00', 'dasdsa']
+profesoresemail=['ee', 'ddsads']

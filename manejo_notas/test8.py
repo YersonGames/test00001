@@ -108,11 +108,48 @@ def limpiar_ventana(): #Limpiar la ventana
     for widget in ventana.winfo_children():
         widget.destroy()
         
+def cargar_db():
+    global profesores, profesoresrut, profesoresemail, asignaturas, asignaturasab, asignaturasdesc
+    profesores = []
+    profesoresrut = []
+    profesoresemail = []
+    asignaturas = []
+    asignaturasab = []
+    asignaturasdesc = []
+    
+    conexion.cursor.execute("select nombre_docente from docentes")
+    save = conexion.cursor.fetchall()
+    for i in range(len(save)):
+        profesores.append(save[i][0])
+    conexion.cursor.execute("select rut_docente from docentes")
+    save = conexion.cursor.fetchall()
+    for i in range(len(save)):
+        profesoresrut.append(save[i][0])
+    conexion.cursor.execute("select email_docente from docentes")
+    save = conexion.cursor.fetchall()
+    for i in range(len(save)):
+        profesoresemail.append(save[i][0])
+    
+    conexion.cursor.execute("select nombre_asignatura from asignaturas")
+    save = conexion.cursor.fetchall()
+    for i in range(len(save)):
+        asignaturas.append(save[i][0])
+    conexion.cursor.execute("select codigo_asignatura from asignaturas")
+    save = conexion.cursor.fetchall()
+    for i in range(len(save)):
+        asignaturasab.append(save[i][0])
+    conexion.cursor.execute("select descripcion_asignatura from asignaturas")
+    save = conexion.cursor.fetchall()
+    for i in range(len(save)):
+        asignaturasdesc.append(save[i][0])
+    guardar()
+
 def check_login(a): #Verificar si se ha logeado correctamente
-    print("check",a)
+    print("check login:",a)
     if a == 1:
         limpiar_ventana()
         crear_ventana2()
+        cargar_db()
         #conexion.executesql("insert into docentes(nombre_docente) values('aaaaa');")
     else:
         ventana.after(1000,lambda:check_login(conexion.login))
@@ -334,7 +371,7 @@ def cursorcheck1(): #verificar seleccion de la lista en profesores
             tkinter.Label(ventana,text="Email: "+str(profesoresemail[cursor2])).place(x=300,y=348,anchor='w')
         if cursor2check == 1:
             ventana.after(100,cursorcheck1)
-        print("check2")
+        print("check list")
         
 def cursorcheck2(): #verificar seleccion de la lista en asignaturas
     global ventana, cursor2check, list1
@@ -353,7 +390,7 @@ def cursorcheck2(): #verificar seleccion de la lista en asignaturas
             tkinter.Label(ventana,text="Descripcion: "+str(asignaturasdesc[cursor2])).place(x=300,y=348,anchor='w')
         if cursor2check == 1:
             ventana.after(100,cursorcheck2)
-        print("check2")
+        print("check list")
 
         
 
