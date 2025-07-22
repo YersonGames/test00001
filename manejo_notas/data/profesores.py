@@ -1,3 +1,3 @@
-profesores=['Yerson', 'aaaaaaaaaaa', 'gggggggggg', 'asdasda', '555555', '6666666666']
-profesoresrut=['1111', 'aaaaa', 'ggggggggggg', 'dsadsad', '55555', '666666666']
-profesoresemail=['2222', 'aaaaaaaaaaaaa', 'ggggggggggg', 'dsadsdasd', '555555', '6666666666']
+profesores=['Yerson', 'aaaaaaaaaaa', 'gggggggggg', 'asdasda', '555555', '6666666666', '77777', 'Yersonheweeqw', '8', '9999', '111111', '232332', 'Rthtrhrh', 'lolol', 'Qwerty']
+profesoresrut=['1111', 'aaaaa', 'ggggggggggg', 'dsadsad', '55555', '666666666', '7777', 'pene', '8888', '99999', '111111', '32323232', 'rethrthreheh', 'lolol', 'qwet']
+profesoresemail=['2222', 'aaaaaaaaaaaaa', 'ggggggggggg', 'dsadsdasd', '555555', '6666666666', '77777', 'weqweqe', '8888', '9999', '111111', '323232323', 'rehtreherth', 'lolol', 'q3ert']

@@ -46,9 +46,9 @@ def actualizar_prof(a,b,c,d): #actualizar datos profesores
     profesores[d] = a.title()
     profesoresrut[d] = b
     profesoresemail[d] = c 
-    crear_ventana_profesores()
     conexion.updsqldocentes(a,b,c,a2,b2,c2)
     guardar()
+    crear_ventana_profesores()
 
 def crear_prof(a,b,c): #Crear nuevo profesor
     a = str(a).title().strip()
@@ -63,9 +63,9 @@ def crear_prof(a,b,c): #Crear nuevo profesor
     profesores.append(a)
     profesoresrut.append(b)
     profesoresemail.append(c)
-    crear_ventana_profesores()
     conexion.addsqldocentes(b,a,c)
     guardar()
+    crear_ventana_profesores()
 
 def crear_asig(a,b,c): #Crear nueva asignatura
     a = str(a).title().strip()
@@ -80,9 +80,9 @@ def crear_asig(a,b,c): #Crear nueva asignatura
     asignaturas.append(a)
     asignaturasab.append(b)
     asignaturasdesc.append(c)
-    crear_ventana_asignaturas()
     conexion.addsqlasignaturas(b,a,c)
     guardar()
+    crear_ventana_asignaturas()
     
 def actualizar_asig(a,b,c,d): #Actualizar datos asignatura
     a2 = str(asignaturas[d]).title()
@@ -100,9 +100,9 @@ def actualizar_asig(a,b,c,d): #Actualizar datos asignatura
     asignaturas[d] = a.title()
     asignaturasab[d] = b
     asignaturasdesc[d] = c 
-    crear_ventana_asignaturas()
     conexion.updsqlasignaturas(a,b,c,a2,b2,c2)
     guardar()
+    crear_ventana_asignaturas()
     
 def limpiar_ventana(): #Limpiar la ventana
     for widget in ventana.winfo_children():
@@ -200,6 +200,7 @@ def crear_ventana_asignaturas(): #ventana de gestion de asignaturas
     textsp2a = tkinter.StringVar()
     textsp3a = tkinter.StringVar()
     curname = 1
+    cargar_db()
     limpiar_ventana()
     tkinter.Label(ventana,text="Asignaturas",padx=0).place(relx=0.5,rely=0,anchor='n')
     list1 = tkinter.Listbox(ventana)
@@ -225,6 +226,7 @@ def crear_ventana_profesores(): #ventana de gestion de profesores
     textsp3a = tkinter.StringVar()
     curname = 1
     cursor2check = 1
+    cargar_db()
     limpiar_ventana()
     tkinter.Label(ventana,text="Profesores",padx=0).place(relx=0.5,rely=0,anchor='n')
     list1 = tkinter.Listbox(ventana)
