@@ -1,3 +1,3 @@
-asignaturas=['Matematicas', 'Lenguaje', 'Biologia', '']
-asignaturasab=['MAT', 'LEN', 'BIO', '']
-asignaturasdesc=['', '', 'hola', '']
+asignaturas=['Biologia2', 'Hola']
+asignaturasab=['BIO', 'HOLA']
+asignaturasdesc=['hola', 'hola']
