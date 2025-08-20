@@ -1,0 +1,2 @@
+usar "while true" no es estructurada :/
+
