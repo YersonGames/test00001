@@ -26,4 +26,3 @@ class Auto:
 miauto = Auto("Toyota","aaaa",1212)
 
 miauto.display_info()
-a
