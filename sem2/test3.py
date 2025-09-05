@@ -31,4 +31,3 @@ a3 = Persona("12345678-1","Jose")
 print(a.presentarse())
 print(a2.presentarse())
 print(a3.presentarse())
-a
