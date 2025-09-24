@@ -57,3 +57,4 @@ class Producto:
     
 p = Producto("11aa","Caja",1000,10)
 print(p.mostrar_info())
+a
