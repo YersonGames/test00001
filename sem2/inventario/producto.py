@@ -54,7 +54,3 @@ class Producto:
     def mostrar_info(self):
         precio_fmt = f"{self.precio:,.0f}".replace(",",".")
         return f"[{self.id}] {self.nombre} - ${precio_fmt} {self.stock}"
-    
-p = Producto("11aa","Caja",1000,10)
-print(p.mostrar_info())
-a
