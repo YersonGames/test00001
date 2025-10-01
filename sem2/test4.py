@@ -25,4 +25,4 @@ cuenta = CuentaBancaria(4444333322221111,1000)
 print(cuenta.mostar_saldo())
 cuenta.depositar(500)
 print(cuenta.mostar_saldo())
-cuenta.retirar(2000)
+cuenta.retirar(2000)a
