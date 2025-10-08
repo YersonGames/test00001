@@ -1,0 +1,70 @@
+from persona import Persona
+from persona_dao import PersonaDAO
+
+# Crear instancia de PersonaDAO
+persona_dao = PersonaDAO()
+
+def mostrar_menu():
+    print("1- Crear persona")
+    print("2- Listar personas")
+    print("3- Actualizar persona")
+    print("4- Eliminar persona")
+    print("0- Salir")
+
+def main():
+    salir = 0
+    while salir == 0:
+        mostrar_menu()
+        opcion = input("Opcion: ").strip()
+
+        try:
+            if opcion == "1":
+                nombre = input("Nombre: ")
+                edad = input("Edad: ")
+                nueva_persona = Persona(None, nombre, edad)
+                persona_dao.insertar(nueva_persona)
+                print(f'Persona insertada: {nueva_persona}')
+            elif opcion == "2":
+                personas = persona_dao.seleccionar_todos()
+                print('Lista de personas:')
+                for persona in personas:
+                    print(f"ID: {persona[0]} Nombre: {persona[1]} Edad: {persona[2]}")
+            elif opcion == "3":
+                nombre = input("Nombre de la persona a actualizar: ").strip()
+
+                for p in persona_dao.seleccionar_todos():
+                    actnombre = str(p[1])
+                    if nombre.lower() in actnombre.lower():
+                        if personas:
+                            persona_actualizar = personas[0]
+                            persona_actualizar.nombre = 'Juan Actualizado'
+                            persona_actualizar.edad = 35
+                            print(persona_actualizar)
+                            #persona_dao.actualizar(persona_actualizar)
+                            #print(f'Persona actualizada: {persona_actualizar}')
+                        print(actnombre)
+
+                
+        except Exception as error:
+            print(error)
+
+main()
+# Crear nueva persona
+
+
+# Seleccionar todas las personas
+
+'''
+# Actualizar una persona
+if personas:
+                    persona_actualizar = personas[0]
+                    persona_actualizar.nombre = 'Juan Actualizado'
+                    persona_actualizar.edad = 35
+                    persona_dao.actualizar(persona_actualizar)
+                    print(f'Persona actualizada: {persona_actualizar}')
+# Eliminar una persona
+if personas:
+    persona_eliminar = personas[0]
+    persona_dao.eliminar(persona_eliminar.id_persona)
+    print(f'Persona eliminada: {persona_eliminar.id_persona}')
+'''
