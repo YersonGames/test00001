@@ -69,22 +69,3 @@ def main():
             print(error)
 
 main()
-# Crear nueva persona
-
-
-# Seleccionar todas las personas
-
-'''
-# Actualizar una persona
-if personas:
-                    persona_actualizar = personas[0]
-                    persona_actualizar.nombre = 'Juan Actualizado'
-                    persona_actualizar.edad = 35
-                    persona_dao.actualizar(persona_actualizar)
-                    print(f'Persona actualizada: {persona_actualizar}')
-# Eliminar una persona
-if personas:
-    persona_eliminar = personas[0]
-    persona_dao.eliminar(persona_eliminar.id_persona)
-    print(f'Persona eliminada: {persona_eliminar.id_persona}')
-'''
