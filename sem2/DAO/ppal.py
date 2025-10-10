@@ -5,7 +5,7 @@ from persona_dao import PersonaDAO
 persona_dao = PersonaDAO()
 
 def mostrar_menu():
-    print("1- Crear persona")
+    print("\n1- Crear persona")
     print("2- Listar personas")
     print("3- Actualizar persona")
     print("4- Eliminar persona")
@@ -44,7 +44,7 @@ def main():
                                 #persona_actualizar = personas[0]
                                 persona_actualizar = Persona(p[0],nnombre,nedad)
                                 persona_dao.actualizar(persona_actualizar)
-                                print(f'Persona actualizada: {p[1]}, Edad: {p[2]}')
+                                print(f'Persona actualizada: {nnombre}, Edad: {nedad}')
                 except Exception as error:
                     print("Error:",error)
             elif opcion == "4":
