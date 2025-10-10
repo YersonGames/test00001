@@ -11,3 +11,5 @@ try:
     print("Proxima actualizacion: ",data.get("time_next_update_utc"))
 except requests.exceptions.HTTPError as error:
     print("Error:",error)
+
+# python -n http.server 8000
