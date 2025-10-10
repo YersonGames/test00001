@@ -30,19 +30,39 @@ def main():
                 for persona in personas:
                     print(f"ID: {persona[0]} Nombre: {persona[1]} Edad: {persona[2]}")
             elif opcion == "3":
-                nombre = input("Nombre de la persona a actualizar: ").strip()
+                try:
+                    nombre = input("Nombre de la persona a actualizar: ").strip()
 
-                for p in persona_dao.seleccionar_todos():
-                    actnombre = str(p[1])
-                    if nombre.lower() in actnombre.lower():
-                        if personas:
-                            persona_actualizar = personas[0]
-                            persona_actualizar.nombre = 'Juan Actualizado'
-                            persona_actualizar.edad = 35
-                            print(persona_actualizar)
-                            #persona_dao.actualizar(persona_actualizar)
-                            #print(f'Persona actualizada: {persona_actualizar}')
-                        print(actnombre)
+                    for p in persona_dao.seleccionar_todos():
+                        actnombre = str(p[1])
+                        if nombre.lower() in actnombre.lower():
+                            print(f"Persona a actualizar: {p[1]}")
+                            nnombre = input("Nombre nuevo: ")
+                            nedad = int(input(f"Edad nueva: "))
+                            personas = [Persona(p[0],p[1],p[2])]
+                            if personas:
+                                #persona_actualizar = personas[0]
+                                persona_actualizar = Persona(p[0],nnombre,nedad)
+                                persona_dao.actualizar(persona_actualizar)
+                                print(f'Persona actualizada: {p[1]}, Edad: {p[2]}')
+                except Exception as error:
+                    print("Error:",error)
+            elif opcion == "4":
+                try:
+                    nombre = input("Nombre de la persona a eliminar: ").strip()
+
+                    for p in persona_dao.seleccionar_todos():
+                        actnombre = str(p[1])
+                        if nombre.lower() in actnombre.lower():
+                            personas = [Persona(p[0],p[1],p[2])]
+                            if personas:
+                                persona_dao.eliminar(p[0])
+                                print(f'Persona eliminada: {p[1]}')
+                except Exception as error:
+                    print("Error:",error)
+            elif opcion == "0":
+                salir = 1
+
 
                 
         except Exception as error:
