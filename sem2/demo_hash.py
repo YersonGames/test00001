@@ -19,3 +19,4 @@ hash_b = haslib.pbkf2_hmac("sha256",password.encode("utf-8"),sal,iteraciones)
 print(hash_b)
 hash_b64 = base64.b64encode(hash_b).decode()
 print(hash_b64)
+a
