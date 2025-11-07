@@ -32,3 +32,5 @@ hash_b64 = base64.b64encode(hash_b).decode()
 
 nuevo_usuario = Usuario(nombre,hash_b64,sal_64)
 usuario.insertar(nuevo_usuario)
+
+print("Usuario Creado!!!")

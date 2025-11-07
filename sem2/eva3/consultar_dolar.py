@@ -1,5 +1,6 @@
 from usuario import Usuario
 from usuario_dao import UsuarioDAO
+from registro_dao import RegistroDAO
 from pwinput import pwinput
 import secrets
 import hashlib
@@ -9,6 +10,7 @@ import datetime
 
 #Iniciar Sesion
 usuario = UsuarioDAO()
+registro = RegistroDAO()
 
 salir = 1
 while salir == 1:
@@ -31,13 +33,13 @@ while salir == 1:
 
     while step == 3:
         select = usuario.login_username(nombre)
-
         if select:
             step = 4
         else:
             step = 1
 
     while step == 4:
+        id_usuario = select[2]
         sal = base64.b64decode(select[1])
         hash_b = base64.b64decode(select[0])
 
@@ -73,9 +75,19 @@ while salir2 == 1:
             respuesta.raise_for_status() 
             data = respuesta.json()
             
-            print(f"\nUSD: {data["serie"]["valor"]}\nFecha: {data["serie"]["fecha"]}\n")
+            
+            print(f"\nUSD: {data["serie"][0]["valor"]}\nFecha: {data["serie"][0]["fecha"]}\n")
+            registro.registrar(id_usuario,f"{date.day}-{date.month}-{date.year}",data["serie"][0]["valor"])
+
 
         except requests.exceptions.HTTPError as error:
             print("Error:",error)
+
+    elif opcion == "2":
+        select_r = registro.consultar()
+        if select_r:
+            print("Resgitros: ")
+            for i in select_r:
+                print(i[0],i[1],i[2],i[3])
     elif opcion == "3":
         salir2 = 0

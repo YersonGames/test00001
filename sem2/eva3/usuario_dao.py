@@ -27,7 +27,7 @@ class UsuarioDAO:
     def login_username(self,nombre):
         with self.database.connect() as conn:
             cursor = conn.cursor()
-            cursor.execute('SELECT contrasena, sal FROM usuario WHERE nombre = ?', 
+            cursor.execute('SELECT contrasena, sal, id FROM usuario WHERE nombre = ?', 
                            (nombre,))
             select = cursor.fetchone()
             if not select:
